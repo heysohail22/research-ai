@@ -289,16 +289,16 @@ export default function Home() {
                 <div className="flex items-center gap-2">
                   <Layers className="w-4 h-4 text-cyan-400" />
                   <h3 className="font-semibold text-white text-sm">
-                    Filtered Sources ({data.sources_count})
+                    Verified Sources ({data.sources_count})
                   </h3>
                 </div>
                 <span className="text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
-                  Deduplicated
+                  Used in Report
                 </span>
               </div>
 
               <p className="text-xs text-slate-400 mb-4">
-                Retained high-signal sources after relevance thresholding and lexical similarity checks:
+                High-quality sources selected and cited in the report after removing noise &amp; duplicates:
               </p>
 
               <div className="space-y-3 max-h-[500px] overflow-y-auto pr-1">
