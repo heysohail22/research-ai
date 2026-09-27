@@ -1,10 +1,16 @@
-# Environment & secrets
+# ==============================================================================
+# Environment Variables & Secrets
+# ==============================================================================
 .env
 .env.*
 *.env
+*.env.local
 !.env.example
+!*.env.example
 
-# Python
+# ==============================================================================
+# Python / Backend
+# ==============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -25,22 +31,42 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Virtual environments
 .venv/
 env/
 venv/
 ENV/
+
+# Testing, typing & linting caches
 .pytest_cache/
 .coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
 
-# Outputs & Reports
-backend/outputs/
+# Databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Output exports & generated reports
 outputs/
+backend/outputs/
 *.pdf
 
-# Node / Frontend
+# ==============================================================================
+# Next.js / Frontend / Node
+# ==============================================================================
 node_modules/
 .next/
 out/
+.vercel/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Package manager files & debug logs
 .pnp
 .pnp.js
 npm-debug.log*
@@ -48,8 +74,23 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# OS & Editor
+# Local SSL certificates
+*.pem
+
+# Next.js auto-generated agent guidelines
+AGENTS.md
+CLAUDE.md
+frontend/AGENTS.md
+frontend/CLAUDE.md
+
+# ==============================================================================
+# Operating System & IDEs
+# ==============================================================================
 .DS_Store
 Thumbs.db
+.directory
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
