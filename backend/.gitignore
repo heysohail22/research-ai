@@ -8,3 +8,15 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Output exports & caches
+outputs/
+*.pdf
+.pytest_cache/
+.coverage
+
