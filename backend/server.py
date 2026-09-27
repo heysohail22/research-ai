@@ -1,12 +1,11 @@
-import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from main import run_research, filter_and_deduplicate, get_tavily_client, generate_structured_summary
+from app import search_web, filter_and_deduplicate, generate_structured_summary
 
 app = FastAPI(title="Autonomous Research Agent API", version="1.0.0")
 
-# Allow requests from frontend (Next.js typically runs on port 3000)
+# CORS middleware for frontend access
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -18,7 +17,7 @@ app.add_middleware(
 class ResearchRequest(BaseModel):
     query: str
     max_results: int = 8
-    min_score: float = 0.75
+    min_score: float = 0.72
 
 class ResearchResponse(BaseModel):
     query: str
@@ -37,19 +36,13 @@ def conduct_research(request: ResearchRequest):
         raise HTTPException(status_code=400, detail="Query cannot be empty")
         
     try:
-        client = get_tavily_client()
-        response = client.search(
-            query=query,
-            search_depth="advanced",
-            max_results=request.max_results,
-            include_raw_content=False,
-        )
-        raw_results = response.get("results", [])
+        # 1. Search
+        raw_results = search_web(query, max_results=request.max_results)
         
-        # 1. Relevance Filter & Deduplication
+        # 2. Filter & Deduplicate
         filtered = filter_and_deduplicate(raw_results, min_score=request.min_score)
         
-        # 2. Gemini Structured Summary
+        # 3. Gemini Structured Summary
         summary = generate_structured_summary(query, filtered)
         
         return ResearchResponse(
