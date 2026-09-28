@@ -1,0 +1,70 @@
+================================================================================
+AUTONOMOUS AI RESEARCH AGENT - SAMPLE RUN TRANSCRIPT & LOG
+================================================================================
+Execution Timestamp : 2026-09-28 00:46:55
+Topic               : "Quantum computing"
+Search Engine       : Tavily Search API (Depth: Advanced)
+Filter Pipeline     : Neural Score Filter + Lexical Overlap Deduplicator
+Synthesis Model     : Google Gemini 3.5 Flash Lite
+================================================================================
+
+[STEP 1: TERMINAL RUN LOG]
+--------------------------------------------------------------------------------
+$ uv run python main.py "Quantum computing"
+
+🔍 Searching Tavily for: 'Quantum computing' (requesting up to 8 results)...
+📥 Tavily returned 8 raw results.
+
+🧹 --- Applying Relevance Filter & Deduplication ---
+  ✅ [ACCEPTED] (0.959): What is Quantum Computing?
+  ✅ [ACCEPTED] (0.939): DOE Explains...Quantum Computing
+  ✅ [ACCEPTED] (0.937): What is quantum computing?
+  🔻 [REJECTED - DUPLICATE CONTENT] (70.0% overlap with 'What is quantum computing?...'): What Is Quantum Computing?...
+  ✅ [ACCEPTED] (0.929): What Is Quantum Computing? | IBM
+  ✅ [ACCEPTED] (0.920): Quantum Computing Inc. Information
+  ✅ [ACCEPTED] (0.897): Quantum computing: What leaders need to know now
+  ✅ [ACCEPTED] (0.890): 14 Quantum Computing Use Cases Reshaping the Future
+--- Filter complete: Retained 7 of 8 items ---
+
+🤖 Synthesizing structured summary with Gemini (gemini-3.5-flash-lite)...
+💾 Summary saved to: outputs/research_quantum_computing_20260928_004655.md
+
+================================================================================
+[STEP 2: FINAL GENERATED STRUCTURED RESEARCH DOSSIER]
+================================================================================
+
+# Research Report: Quantum computing
+
+## 1. 📌 Key Points
+- Quantum computing is a multidisciplinary field merging computer science, physics, and mathematics to solve complex problems exponentially faster than classical computers by leveraging quantum mechanics principles like superposition and interference [1, 4].
+- Unlike classical computers that process information in strict binary bits (0 or 1), quantum computers utilize qubits which can exist in multiple states simultaneously [4].
+- Current systems are generally small, noisy prototypes, but the technology is rapidly progressing toward becoming a critical component of the advanced computing landscape beyond exascale systems [2].
+- Primary use cases span simulation of physical and chemical systems, machine learning acceleration, optimization (such as supply chain and financial portfolios), and climate modeling [1, 2, 7].
+
+## 2. 🔍 Important Findings
+
+### Core Mechanics and Hardware
+Quantum computing utilizes quantum mechanical effects—specifically superposition and quantum interference—to perform calculations in ways that classical computers cannot [1, 4]. While classical computers evaluate complex calculations sequentially step-by-step, quantum circuits made from logical qubits can process data using quantum logic to handle complex mathematics more efficiently [4]. Hardware research ranges from large-scale cryogenic systems to emerging innovations like integrated photonics companies building room-temperature, low-power machines designed for high-performance computing, AI, and cybersecurity [1, 5]. 
+
+### Computational Advantages and Target Problems
+Quantum computers are not meant to replace classical computers universally; rather, they complement them by tackling problems that are computationally intractable or would take classical supercomputers unfeasible amounts of time to resolve [1, 4, 7]. They excel in specific areas:
+- Simulation of Physical Systems: Simulating molecular structures, chemical catalysts, and drug molecules requires exponential scaling that overwhelms even modern supercomputers [1, 2]. Quantum computers inherently simulate quantum-mechanical physical systems accurately, unlocking breakthroughs in chemistry and material science [1, 2].
+- Optimization Problems: Quantum computing aids in choosing the best alternatives across massive ranges of variables [2]. Practical applications include supply-chain routing, manufacturing cost reduction, energy grid optimization, and loan portfolio optimization in finance [1, 2, 7].
+- Artificial Intelligence and Machine Learning: Quantum algorithms can process high-dimensional data, accelerate the training of specific machine learning models, and identify complex patterns in massive datasets [1, 7].
+- Climate and Weather Modeling: Hybrid quantum-classical algorithms assist in atmospheric modeling, weather prediction, and climate research by accelerating highly demanding calculations [7].
+
+## 3. ⚡ Actionable Insights
+- Assess Business Vulnerability and Opportunity: Leaders should evaluate where combinatorial optimization, logistics routing, or chemical/material simulations bottleneck their current operations to identify high-ROI entry points for quantum solutions [1, 2, 6, 7].
+- Invest in Hybrid Frameworks: Because current quantum devices are small, noisy prototypes [2], organizations should leverage hybrid quantum-classical algorithms and software (such as chemistry simulation platforms or optimization tools) to build capabilities ahead of full fault tolerance [1, 7].
+- Monitor Emerging Hardware Modalities: Keep abreast of hardware developments—ranging from cryogenic systems to room-temperature integrated photonics—to determine which deployment model aligns best with organizational infrastructure and power budgets [5].
+- Prepare for Cybersecurity Shifts: Given quantum computing’s applications in cybersecurity [5], organizations must begin tracking post-quantum cryptography standards to secure sensitive data against future decryption capabilities.
+
+## 4. 📚 References & Sources
+- [1] [What is Quantum Computing?](https://aws.amazon.com/what-is/quantum-computing) - Outlines the multidisciplinary nature of quantum computing, foundational principles like superposition and interference, and core application domains such as chemical simulation and financial optimization.
+- [2] [DOE Explains...Quantum Computing](https://www.energy.gov/science/doe-explainsquantum-computing) - Explains qubits, the exponential encoding of information, and the current state of quantum hardware development relative to exascale classical computers.
+- [3] [What is quantum computing?](https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-quantum-computing) - Defines quantum computing as an approach leveraging fundamental physics for rapid complex problem-solving.
+- [4] [What Is Quantum Computing? | IBM](https://www.ibm.com/think/topics/quantum-computing) - Compares classical bits and quantum qubits, detailing quantum logic, circuits, and interference.
+- [5] [Quantum Computing Inc. Information](https://rocketreach.co/quantum-computing-inc-profile_b45fc8a2fc6890a7) - Details integrated photonics and room-temperature, low-power quantum machines utilized for high-performance computing, AI, and cybersecurity.
+- [6] [Quantum computing: What leaders need to know now](https://mitsloan.mit.edu/ideas-made-to-matter/quantum-computing-what-leaders-need-to-know-now) - Highlights the strategic imperative for business leaders to understand and leverage quantum simulation and problem-solving.
+- [7] [14 Quantum Computing Use Cases Reshaping the Future](https://www.bluequbit.io/blog/quantum-computing-use-cases) - Explores real-world use cases including AI/ML acceleration, supply-chain logistics, and climate and grid optimization modeling.
+================================================================================
